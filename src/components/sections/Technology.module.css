@@ -1,0 +1,55 @@
+.techSection {
+  position: relative;
+  min-height: 100vh;
+  padding: 10vw 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.content h2 {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  margin-bottom: 2rem;
+}
+
+.desc {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 4rem;
+  line-height: 1.6;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.techItem {
+  padding: 2rem;
+  transition: transform 0.3s;
+}
+
+.techItem:hover {
+  transform: translateY(-10px);
+  border-color: var(--color-gold);
+}
+
+.techIcon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  border: 1px dashed var(--color-gold);
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}

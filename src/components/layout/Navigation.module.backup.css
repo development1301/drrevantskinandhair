@@ -1,0 +1,152 @@
+.nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1440px;
+  height: 80px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: rgba(8, 19, 33, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 162, 76, 0.1);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.scrolled {
+  top: 10px;
+  background: rgba(8, 19, 33, 0.9);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.logoImage {
+  height: 150px; /* Increased by 200% essentially from original ~50px, but scaled down so it fits */
+  width: auto;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: -35px; /* Pull it up to overflow beautifully if it's large */
+  filter: drop-shadow(0 0 10px rgba(212, 162, 76, 0.2));
+}
+
+.logoImage:hover {
+  filter: drop-shadow(0 0 20px rgba(212, 162, 76, 0.6));
+}
+
+.links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-left: auto;
+}
+
+.links a, .dropdown span {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.links a:hover, .dropdown span:hover {
+  color: var(--color-gold);
+}
+
+.dropdown {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.dropdownContent {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(26, 31, 43, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 162, 76, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdownContent {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.cta {
+  background: linear-gradient(135deg, #D4A24C 0%, #F5D061 50%, #D4A24C 100%);
+  color: var(--color-navy);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px; /* Premium pill shape */
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(212, 162, 76, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  box-shadow: 0 8px 25px rgba(212, 162, 76, 0.6);
+}
+
+.mobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-gold);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .links {
+    display: none;
+  }
+  
+  .mobileMenuBtn {
+    display: block;
+    margin-left: auto;
+  }
+  
+  .links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: rgba(8, 19, 33, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 162, 76, 0.2);
+  }
+  
+  .logoImage {
+    height: 80px;
+    top: 0;
+  }
+}

@@ -1,0 +1,45 @@
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(8, 19, 33, 0.8);
+  border-top: 1px solid rgba(212, 162, 76, 0.2);
+  border-bottom: 1px solid rgba(212, 162, 76, 0.2);
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.marqueeTrack {
+  width: 200%; /* Enough width to hold both sets of words */
+  overflow: hidden;
+}
+
+.marqueeContent {
+  display: flex;
+  width: max-content;
+}
+
+.wordSet {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding-right: 3rem; /* Match the gap */
+}
+
+.word {
+  font-family: var(--font-canela);
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+.dot {
+  font-size: 1rem;
+  color: var(--color-white);
+  opacity: 0.3;
+}

@@ -1,0 +1,287 @@
+.journeySection {
+  position: relative;
+  min-height: 300vh; /* Reduced for a punchy, continuous experience */
+  width: 100%;
+  background: var(--color-midnight);
+  z-index: 10;
+}
+
+.stickyWrap {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+/* TOP TRANSFORMATION BAR */
+.topBar {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 30;
+  padding: 1rem 0;
+}
+
+.timelineTrack {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+.timelineFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--color-gold);
+  box-shadow: 0 0 10px var(--color-gold);
+}
+
+.timelineNode {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nodeDot {
+  width: 12px;
+  height: 12px;
+  background: var(--color-midnight);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.nodeDotActive {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 15px var(--color-gold);
+  transform: scale(1.5);
+}
+
+.nodeLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+}
+
+.nodeLabelActive {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+/* MAIN OVERLAY LAYOUT */
+.overlayLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 5vw;
+  z-index: 20;
+}
+
+.leftColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.rightColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+.hugeMonth {
+  font-size: clamp(6rem, 12vw, 12rem);
+  line-height: 1;
+  font-weight: 200;
+  color: var(--color-gold);
+  opacity: 0.15;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  margin: 0;
+}
+
+.infoPanel {
+  position: absolute;
+  right: 0;
+  top: 40%;
+  width: 350px;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+.chapterTitle {
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.chapterDesc {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  text-align: right;
+}
+
+.metricItem {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.metricLabel {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  min-width: 80px;
+}
+
+/* SPLIT SCREEN REVEAL */
+.splitScreenContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 40;
+  background: var(--color-midnight);
+}
+
+.splitHalf {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.splitLeft {
+  border-right: 1px solid rgba(212, 162, 76, 0.3);
+}
+
+.splitImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.splitLabel {
+  position: relative;
+  z-index: 2;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: white;
+  text-shadow: 0 5px 20px rgba(0,0,0,0.8);
+  padding: 1rem 3rem;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50px;
+}
+
+/* FINAL SIGNATURE MOMENT */
+.finalTitleContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 50;
+  width: 100%;
+}
+
+.finalHeadline {
+  font-size: clamp(4rem, 8vw, 8rem);
+  line-height: 1;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.8));
+}
+
+/* FAILSAFE FALLBACK */
+.failsafeFallback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 162, 76, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.failsafeCore {
+  width: 100px;
+  height: 100px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(212, 162, 76, 0.5);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}

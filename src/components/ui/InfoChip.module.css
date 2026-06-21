@@ -1,0 +1,13 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 162, 76, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  color: var(--color-white);
+  font-weight: 500;
+  white-space: nowrap;
+}

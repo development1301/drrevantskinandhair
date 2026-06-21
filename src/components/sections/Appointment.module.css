@@ -1,0 +1,94 @@
+.appointmentSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5vw;
+  z-index: 10;
+}
+
+.appointmentCard {
+  width: 100%;
+  max-width: 600px;
+  padding: 4rem 3rem;
+  text-align: center;
+  transform: translateZ(0);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.appointmentCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(212, 162, 76, 0.05);
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  opacity: 0.8;
+  margin-bottom: 3rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.submitBtn {
+  position: relative;
+  background: var(--color-gold);
+  color: var(--color-midnight);
+  border: none;
+  padding: 1.2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 1rem;
+  font-family: var(--font-body);
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: 1;
+  opacity: 0.2;
+}
+
+.submitBtn span {
+  position: relative;
+  z-index: 2;
+}
+
+.submitBtn:hover .glow {
+  width: 400px;
+  height: 400px;
+}
