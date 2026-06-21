@@ -1,6 +1,6 @@
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
-import Scene from '@/components/canvas/Scene';
+import SceneWrapper from '@/components/canvas/SceneWrapper';
 import AppProvider from '@/components/layout/AppProvider';
 import "./globals.css";
 
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body>
         <SmoothScroll>
-          <Scene />
+          <SceneWrapper />
           <AppProvider>
             {children}
           </AppProvider>

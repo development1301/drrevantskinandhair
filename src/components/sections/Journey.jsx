@@ -1,26 +1,10 @@
 "use client";
 import React, { useRef, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import dynamic from 'next/dynamic';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
-import Journey3D from '../canvas/Journey3D';
 import styles from './Journey.module.css';
 
-// Simple Error Boundary for WebGL Fallback
-class WebGLBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-  render() {
-    if (this.state.hasError) {
-      return this.props.fallback;
-    }
-    return this.props.children;
-  }
-}
+const JourneyCanvas = dynamic(() => import('../canvas/JourneyCanvas'), { ssr: false });
 
 export default function Journey() {
   const containerRef = useRef(null);
@@ -62,17 +46,7 @@ export default function Journey() {
         
         {/* 3D Environment Background & Simulation with WebGL Fallback */}
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
-          <WebGLBoundary 
-            fallback={
-              <div className={styles.failsafeFallback}>
-                <div className={styles.failsafeCore}></div>
-              </div>
-            }
-          >
-            <Canvas camera={{ position: [0, 2, 8], fov: 45 }}>
-              <Journey3D scrollProgress={scrollYProgress} />
-            </Canvas>
-          </WebGLBoundary>
+          <JourneyCanvas scrollYProgress={scrollYProgress} />
         </div>
 
         {/* TOP TRANSFORMATION BAR */}
