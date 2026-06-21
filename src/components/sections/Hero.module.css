@@ -260,11 +260,11 @@
   opacity: 0.8;
 }
 
-.card1 { top: 10%; left: -10%; }
-.card2 { top: 30%; right: -15%; }
-.card3 { top: 55%; left: -20%; }
-.card4 { bottom: 15%; right: -5%; }
-.card5 { bottom: -5%; left: 10%; }
+.card1 { top: 10%; left: -2%; }
+.card2 { top: 30%; right: -2%; }
+.card3 { top: 55%; left: -5%; }
+.card4 { bottom: 15%; right: 2%; }
+.card5 { bottom: 5%; left: 15%; }
 
 /* Optimized Hardware-Accelerated Keyframes */
 @keyframes float1 {
