@@ -1,8 +1,10 @@
 "use client";
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import styles from './BeforeAfter.module.css';
 
 export default function BeforeAfter() {
+  const router = useRouter();
+
   return (
     <section className={styles.beforeAfterSection}>
       <h2 className={`gold-text ${styles.title}`}>Transformations</h2>
@@ -15,7 +17,11 @@ export default function BeforeAfter() {
           { id: 'C', title: 'Case Study C', desc: 'GFC Treatment - 4 Sessions', after: '4 Months' },
           { id: 'D', title: 'Case Study D', desc: 'Advanced Acne Scarring', after: '8 Months' }
         ].map((study) => (
-          <Link key={study.id} href="/before-after" className={`${styles.card} glass-panel`} style={{ textDecoration: 'none' }}>
+          <div 
+            key={study.id} 
+            onClick={() => router.push('/before-after')} 
+            className={`${styles.card} glass-panel`}
+          >
             <h3 className={styles.cardTitle}>{study.title}</h3>
             <p className={styles.cardDesc}>{study.desc}</p>
             <div className={styles.cardImages}>
@@ -23,7 +29,7 @@ export default function BeforeAfter() {
               <div className={styles.imagePlaceholder}>After</div>
             </div>
             <p className={styles.clickHint}>Click to View Full Gallery</p>
-          </Link>
+          </div>
         ))}
       </div>
     </section>
