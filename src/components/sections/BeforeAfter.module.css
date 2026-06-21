@@ -29,7 +29,6 @@
   gap: 2rem;
   width: 100%;
   max-width: 1100px;
-  perspective: 1500px;
 }
 
 .card {
@@ -37,18 +36,19 @@
   min-width: 300px;
   padding: 2rem;
   cursor: pointer;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
-  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   background: rgba(26, 31, 43, 0.6);
   border: 1px solid rgba(212, 162, 76, 0.2);
   border-radius: 16px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 20;
 }
 
 .card:hover {
-  transform: translateZ(50px) rotateX(2deg) rotateY(-2deg);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(212, 162, 76, 0.1);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(212, 162, 76, 0.1);
   border-color: var(--color-gold);
 }
 
