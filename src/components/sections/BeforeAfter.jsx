@@ -1,37 +1,64 @@
 "use client";
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './BeforeAfter.module.css';
 
 export default function BeforeAfter() {
   const router = useRouter();
+  const [sliderPosition, setSliderPosition] = useState(50);
+
+  const handleSliderChange = (e) => {
+    setSliderPosition(e.target.value);
+  };
 
   return (
     <section className={styles.beforeAfterSection}>
       <h2 className={`gold-text ${styles.title}`}>Transformations</h2>
       <p className={styles.subtitle}>Witness the results of precision and science.</p>
       
-      <div className={styles.gridContainer}>
-        {[
-          { id: 'A', title: 'Case Study A', desc: 'FUE Transplant - 2500 Grafts', after: '1 Year' },
-          { id: 'B', title: 'Case Study B', desc: 'PRP Therapy - 6 Sessions', after: '6 Months' },
-          { id: 'C', title: 'Case Study C', desc: 'GFC Treatment - 4 Sessions', after: '4 Months' },
-          { id: 'D', title: 'Case Study D', desc: 'Advanced Acne Scarring', after: '8 Months' }
-        ].map((study) => (
-          <div 
-            key={study.id} 
-            onClick={() => router.push('/before-after')} 
-            className={`${styles.card} glass-panel`}
-          >
-            <h3 className={styles.cardTitle}>{study.title}</h3>
-            <p className={styles.cardDesc}>{study.desc}</p>
-            <div className={styles.cardImages}>
-              <div className={styles.imagePlaceholder}>Before</div>
-              <div className={styles.imagePlaceholder}>After</div>
-            </div>
-            <p className={styles.clickHint}>Click to View Full Gallery</p>
+      <div className={styles.sliderContainer}>
+        {/* AFTER IMAGE (Bottom Layer) */}
+        <div className={styles.imageAfter}>
+          <img src="/images/before_after_gallery.png" alt="After Transformation" />
+          <span className={styles.labelAfter}>After</span>
+        </div>
+        
+        {/* BEFORE IMAGE (Top Layer, Clipped) */}
+        <div 
+          className={styles.imageBefore} 
+          style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
+        >
+          {/* Using a CSS filter to simulate a 'Before' state for the placeholder */}
+          <img src="/images/before_after_gallery.png" alt="Before Transformation" style={{ filter: 'grayscale(0.8) sepia(0.3) blur(1px)' }} />
+          <span className={styles.labelBefore}>Before</span>
+        </div>
+
+        {/* SLIDER LINE & HANDLE */}
+        <div className={styles.sliderLine} style={{ left: `${sliderPosition}%` }}>
+          <div className={styles.sliderThumb}>
+            <div className={styles.thumbArrowLeft}></div>
+            <div className={styles.thumbArrowRight}></div>
           </div>
-        ))}
+        </div>
+
+        {/* INVISIBLE RANGE INPUT */}
+        <input 
+          type="range" 
+          min="0" 
+          max="100" 
+          value={sliderPosition} 
+          onChange={handleSliderChange}
+          className={styles.sliderInput} 
+          aria-label="Compare before and after images"
+        />
       </div>
+
+      <button 
+        className={styles.seeMoreBtn} 
+        onClick={() => router.push('/before-after')}
+      >
+        See More Transformations
+      </button>
     </section>
   );
 }
