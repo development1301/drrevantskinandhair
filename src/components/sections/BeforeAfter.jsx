@@ -13,8 +13,10 @@ export default function BeforeAfter() {
 
   return (
     <section className={styles.beforeAfterSection}>
-      <h2 className={`gold-text ${styles.title}`}>Transformations</h2>
-      <p className={styles.subtitle}>Witness the results of precision and science.</p>
+      <h2 className={`gold-text ${styles.title}`}>Real Patient Transformations</h2>
+      <p className={styles.subtitle}>
+        Natural results achieved through advanced hair restoration and dermatology treatments.
+      </p>
       
       <div className={styles.sliderContainer}>
         {/* AFTER IMAGE (Bottom Layer) */}
@@ -28,7 +30,6 @@ export default function BeforeAfter() {
           className={styles.imageBefore} 
           style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
         >
-          {/* Using a CSS filter to simulate a 'Before' state for the placeholder */}
           <img src="/images/before_after_gallery.png" alt="Before Transformation" style={{ filter: 'grayscale(0.8) sepia(0.3) blur(1px)' }} />
           <span className={styles.labelBefore}>Before</span>
         </div>
@@ -53,11 +54,15 @@ export default function BeforeAfter() {
         />
       </div>
 
+      <div className={styles.conciseInfo}>
+        <p>Hair Transplant • 3500 Grafts • 12 Months Recovery</p>
+      </div>
+
       <button 
         className={styles.seeMoreBtn} 
         onClick={() => router.push('/before-after')}
       >
-        See More Transformations
+        See More Transformations →
       </button>
     </section>
   );
